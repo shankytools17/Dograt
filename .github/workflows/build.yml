@@ -1,16 +1,15 @@
-name: Build
-on: [push, workflow_dispatch]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
-          command: buildozer android debug
-          buildozer_version: stable
-      - uses: actions/upload-artifact@v4
-        with:
-          name: apk
-          path: ${{ steps.buildozer.outputs.filename }}
+[app]
+title = Agent
+package.name = agent
+package.domain = org.agent
+source.dir = .
+source.include_exts = py
+version = 0.1
+requirements = python3,kivy
+orientation = portrait
+android.permissions = INTERNET
+android.archs = arm64-v8a
+android.accept_sdk_license = True
+
+[buildozer]
+log_level = 2
