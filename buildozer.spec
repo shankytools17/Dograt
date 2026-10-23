@@ -1,4 +1,3 @@
-
 [app]
 title = Agent
 package.name = agent
